@@ -32,7 +32,7 @@ def rivers_by_station_number(stations, N):
 
     final_river_list=[]
     i=0
-    while i<9:
+    while i<N:
         final_river_list.append(river_descending[i])
         i+=1
     while river_descending[i][0]==river_descending[i-1][0]:
