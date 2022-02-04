@@ -42,3 +42,27 @@ def rivers_by_station_number(stations, N):
     final_river_list=[(t[1], t[0]) for t in final_river_list]
 
     return final_river_list
+
+def stations_by_distance(stations, p):                           
+    list = []
+    for station in stations:
+       distance = haversine(p, station.coord)
+       list.append((station.name, station.town, distance ))         
+    return sorted_by_key(list, 2, reverse = False)    
+
+def rivers_with_station(stations):
+    rivers_list = []
+    for station in stations:
+        rivers_list.append(station.river) 
+    final_river_list = set(rivers_list)
+    return final_river_list                            
+
+def stations_by_river(stations):
+    rivers_list= []
+    dict_river_lists = {}                   #going to try and do it directly               #let me try and iterate through rivers
+    for station in stations:
+       rivers_list.append(station.river)
+    for station.river in stations:
+        dict_river_lists[station.river] = station.name   
+    return dict_river_lists
+
