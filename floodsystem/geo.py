@@ -57,12 +57,13 @@ def rivers_with_station(stations):
     final_river_list = set(rivers_list)
     return final_river_list                            
 
-def stations_by_river(stations):
-    rivers_list= []
-    dict_river_lists = {}                   #going to try and do it directly               #let me try and iterate through rivers
+def stations_by_river(stations):         
+    river_dict = {}
     for station in stations:
-       rivers_list.append(station.river)
-    for station.river in stations:
-        dict_river_lists[station.river] = station.name   
-    return dict_river_lists
+        if station.river in river_dict:
+            river_dict[station.river].append(station.name)
+            river_dict[station.river].sort()
+        else:
+            river_dict[station.river] = [station.name]
+    return river_dict
 
