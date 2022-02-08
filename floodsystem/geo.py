@@ -9,15 +9,17 @@ geographical data.
 from .utils import sorted_by_key  # noqa
 from haversine import haversine, Unit
 
+#ml2015
 def stations_within_radius(stations, centre,r):
+    """For Task 1C - a function which returns a list of stations within a radius from a centre"""
     station_radius_list=[]
     for station in stations:
         if haversine(centre, station.coord)<=r:
             station_radius_list.append(station)
     return station_radius_list
 
-
 def rivers_by_station_number(stations, N):
+    """For Task 1E - a function which returns a list of rivers in descending order of monitoring stations up to N including repeats"""
     river_list=[]
     for station in stations:
         river_list.append(station.river)
@@ -43,6 +45,8 @@ def rivers_by_station_number(stations, N):
 
     return final_river_list
 
+
+#tak42
 def stations_by_distance(stations, p):                           
     list = []
     for station in stations:

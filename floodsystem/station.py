@@ -40,7 +40,7 @@ class MonitoringStation:
         return d
 
     def typical_range_consistent(self):
-
+        """For Task 1F"""
         if self.typical_range == None:
             return False
 
@@ -50,7 +50,9 @@ class MonitoringStation:
         else:
             return True
 
+#ml2015
 def inconsistent_typical_range_stations(stations):
+    """For Task 1F -  a function which returns a list of stations with inconsistent typical range"""
     list = []
     for station in stations:
         if station.typical_range_consistent() == False:
