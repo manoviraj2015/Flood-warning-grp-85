@@ -29,7 +29,6 @@ def test_rivers_by_station_number():
 
 #tak42
 
-
 def test_stations_by_distance():
     #1B-Checks that the type is a list
     #Checks that the list has tuples
@@ -40,23 +39,18 @@ def test_stations_by_distance():
         assert type(distance) == tuple
 
 def test_rivers_with_station():
-    #1D - Checks that the type is a list
-    #Checks that the list has tuples
-    #Check that there is a monitoring station with the river
-    #Check that the list doesn't contain duplicate entries
+    #1D - Checks that the list is not empty
+    #Checks that there are no duplicate entries
     stations = build_station_list()
     list_of_riverss = rivers_with_station(stations)
-    #assert type (list_of_riverss) == list
-    #for river in list_of_riverss:
-       # assert type(river) == tuple
-    #for station in list_of_riverss:
-        #assert type(station) == MonitoringStation
+    assert len(list_of_riverss) > 0
     assert len(list_of_riverss) == len(set(list_of_riverss))
 
 def test_stations_by_river():
-    #1D - Checks that the type is a list
+    #Check that the type is a dictionary
+    #Check that the dictionary is not empty
     #Check that the dictionary doesn't contain duplicate entries
     stations = build_station_list()
     station_list = stations_by_river(stations)
-    #assert type (station_list) == list
+    assert type(station_list) == dict
     assert len(station_list) == len(set(station_list))
