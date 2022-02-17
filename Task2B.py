@@ -10,7 +10,7 @@ def run():
     station_list_over_threshold=stations_level_over_threshold(stations, 0.8)
     
     for tup in station_list_over_threshold:
-        print(tup[0].name,tup[1])
+        print(tup[0].name, tup[1])
 
 if __name__ == "__main__":
   run()
