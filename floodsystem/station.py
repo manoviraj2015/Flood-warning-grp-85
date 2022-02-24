@@ -51,6 +51,7 @@ class MonitoringStation:
             return True
 
     def relative_water_level(self):
+        """For Task 2B"""
         if self.latest_level == None:
             return None
         elif self.typical_range_consistent() == False:

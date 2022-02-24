@@ -5,6 +5,10 @@ flood data.
 #ml2015
 
 def stations_level_over_threshold(stations,tol):
+    """For Task 2B - returns a list of tuples
+    The tuples contain a station and then a relative water level
+    the relative water level must be greater than tol
+    returned list should be in descending order"""
     
     threshold_list=[]
     for station in stations:
@@ -20,6 +24,9 @@ def stations_level_over_threshold(stations,tol):
 
 
 def stations_highest_rel_level(stations, N):
+    """For Task 2C - returns a list of N stations at which relative typical water level is highest
+    List is sorted in descending order"""
+    
     list_highest_level = []
     for station in stations:
         m=station.relative_water_level()
