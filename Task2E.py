@@ -1,3 +1,4 @@
+#tak42
 from floodsystem.plot import plot_water_levels
 from floodsystem.stationdata import build_station_list, update_water_levels
 from datetime import datetime, timedelta 
@@ -11,17 +12,27 @@ def run():
 
     # Update latest level data for all stations
     update_water_levels(stations)
+    
+    # Current 5 stations that have greatest water level
+    station_list = []
+    for station in stations:
+       if station.latest_level != None:
+        station_list.append((station.name, station.latest_level ))
+    sorted_station_list = sorted_by_key(station_list, 1 , reverse = True)  
+    spliced_sorted_station_list = sorted_station_list[:5]
      
    # Fetch data over past 10 days
-    for station in stations:
-            dt = 10
-            dates, levels = fetch_measure_levels(
-            station.measure_id, dt=datetime.timedelta(days=dt))
-            for date, level in zip(dates, levels):
-             plot_water_levels(station.name, dates, levels)
-    next 
-
-
+   dt = 10
+    
+    #Producing the graphs
+    for station in stations: 
+          if station.name in [
+           spliced_sorted_station_list[1][0], spliced_sorted_station_list[0][0],  spliced_sorted_station_list[2][0] 
+           , spliced_sorted_station_list[3][0] , spliced_sorted_station_list[4][0]
+           ]:
+              dates, levels = fetch_measure_levels(
+              station.measure_id, dt=datetime.timedelta(days=dt))
+              plot_water_levels(station.name, dates, levels)
 
 if __name__ == "__main__":
     print("*** Task 2E: CUED Part IA Flood Warning System ***")
