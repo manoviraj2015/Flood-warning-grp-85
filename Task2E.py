@@ -24,6 +24,7 @@ def run():
    # Fetch data over past 10 days
    dt = 10
     
+    
     #Producing the graphs
     for station in stations: 
           if station.name in [
