@@ -1,17 +1,64 @@
+#tak42
 import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib
+from floodsystem.analysis import polyfit
+from floodsystem.stationdata import build_station_list
 
-def plot_water_levels(station, dates, levels):
-
-    # Plot
+def plot_water_levels(station, dates, levels): 
+    # Plotting the levels against dates
+    stationname = station
     plt.plot(dates, levels)
-
-    # Add axis labels, rotate date labels and add plot title
+    range = []
+    stations = build_station_list()
+    for station in stations:
+        if station.name in [
+            stationname
+        ]:
+            range.append(station.typical_range)                               
+    low_value = range[0][0]
+    high_value = range[0][1]
+    plt.axhline(y=low_value)
+    plt.axhline(y=high_value)
+    
     plt.xlabel('date')
     plt.ylabel('water level (m)')
     plt.xticks(rotation=45);
-    plt.title("Station " + station)
+    plt.title("Station " + stationname)
+    
+    plt.show()
+    # Display plot
+    plt.tight_layout()  
+
+
+def plot_water_levels_with_fit(station, dates, levels, p): 
+    #Same as standard plot_Water_levels
+    stationname = station
+
+    plt.plot(dates, levels)
+    range = []
+    stations = build_station_list()
+    for station in stations:
+        if station.name in [
+            stationname
+        ]:
+            range.append(station.typical_range)                               
+    low_value = range[0][0]
+    high_value = range[0][1]
+    plt.axhline(y=low_value)
+    plt.axhline(y=high_value)
+    
+    plt.xlabel('date')
+    plt.ylabel('water level (m)')
+    plt.xticks(rotation=45);
+    plt.title("Station " + stationname)
+
+    # Plot polynomial fit at 30 points along interval
+    float_dates = matplotlib.dates.date2num(dates)
+    x1 = np.linspace(float_dates[0], float_dates[-1], 30)
+    p_coeff = np.polyfit(float_dates, levels, p)
+    poly = np.poly1d(p_coeff)
+    plt.plot(x1, poly(x1 - float_dates[0]))
 
     # Display plot
-    plt.tight_layout()  # This makes sure plot does not cut off date labels
-
     plt.show()
