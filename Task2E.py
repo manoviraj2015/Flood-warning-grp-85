@@ -4,6 +4,7 @@ from floodsystem.stationdata import build_station_list, update_water_levels
 from datetime import datetime, timedelta 
 from floodsystem.datafetcher import fetch_measure_levels
 import datetime
+from floodsystem.utils import sorted_by_key
 
 def run():
 
@@ -27,7 +28,7 @@ def run():
     #Producing the graphs
     for station in stations: 
           if station.name in [
-           spliced_sorted_station_list[1][0], spliced_sorted_station_list[0][0],  spliced_sorted_station_list[2][0] 
+           spliced_sorted_station_list[0][0], spliced_sorted_station_list[1][0],  spliced_sorted_station_list[2][0] 
            , spliced_sorted_station_list[3][0] , spliced_sorted_station_list[4][0]
            ]:
               dates, levels = fetch_measure_levels(
