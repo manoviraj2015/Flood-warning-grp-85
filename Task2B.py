@@ -13,4 +13,5 @@ def run():
         print(tup[0].name, tup[1])
 
 if __name__ == "__main__":
+  print("*** Task 2B: CUED Part IA Flood Warning System ***")
   run()
