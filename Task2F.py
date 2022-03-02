@@ -15,6 +15,7 @@ def run():
     stations = build_station_list()
     # Update latest level data for all stations
     update_water_levels(stations)    
+
    #Creating list of stations of inconsistent data so can discount from final 5
     inconsistent_stations = inconsistent_typical_range_stations(stations)
     
@@ -24,6 +25,7 @@ def run():
       if station in inconsistent_stations:
         next
       elif station.latest_level != None:
+
         station_list.append((station.name, station.latest_level ))
     sorted_station_list = sorted_by_key(station_list, 1 , reverse = True)  
     spliced_sorted_station_list = sorted_station_list[1:6]
