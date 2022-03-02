@@ -16,8 +16,8 @@ def plot_water_levels(station, dates, levels):
     plt.ylabel('water level (m)')
     plt.xticks(rotation=45);
     plt.title(station.name)
-
-    plt.tight_layout()  
+    
+    plt.tight_layout()
     plt.show()
    
 
@@ -39,6 +39,5 @@ def plot_water_levels_with_fit(station, dates, levels, p):
     plt.title(station.name)
 
     plt.tight_layout()  
-
     plt.show()
    
