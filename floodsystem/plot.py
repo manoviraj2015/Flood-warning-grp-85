@@ -7,9 +7,6 @@ from floodsystem.stationdata import build_station_list
 
 def plot_water_levels(station, dates, levels): 
     
-    plt.axhline(y = station.typical_range[0])
-    plt.axhline(y = station.typical_range[1])
-    
     plt.plot(dates, levels)
     
     plt.xlabel('date')
@@ -18,6 +15,10 @@ def plot_water_levels(station, dates, levels):
     plt.title(station.name)
     
     plt.tight_layout()
+    
+    plt.axhline(y = station.typical_range[0])
+    plt.axhline(y = station.typical_range[1])
+
     plt.show()
    
 
