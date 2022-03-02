@@ -6,6 +6,9 @@ from floodsystem.datafetcher import fetch_measure_levels
 from datetime import datetime, timedelta 
 import datetime
 import numpy as np
+from floodsystem.station import inconsistent_typical_range_stations
+from floodsystem.utils import sorted_by_key
+
 
 #def test_polyfit():
 #    stations = build_station_list()
