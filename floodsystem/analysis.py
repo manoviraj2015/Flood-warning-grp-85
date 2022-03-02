@@ -1,11 +1,11 @@
+#tak42
 import matplotlib
 import numpy as np
 
 def polyfit(dates, levels, p):
-    x = matplotlib.dates.date2num(dates)
-    d0 = x[0]
-    p_coeff = np.polyfit(x - d0, levels, p)
+    float_dates = matplotlib.dates.date2num(dates)
+    p_coeff = np.polyfit(float_dates - float_dates[0], levels, p)
     poly = np.poly1d(p_coeff)
-    return poly, d0
+    return poly, float_dates[0]
 
     
