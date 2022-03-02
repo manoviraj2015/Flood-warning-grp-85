@@ -30,7 +30,6 @@ def plot_water_levels(station, dates, levels):
     # Display plot
     plt.tight_layout()  
 
-
 def plot_water_levels_with_fit(station, dates, levels, p):
     station_name = str(station)
     plt.xlabel('date')
