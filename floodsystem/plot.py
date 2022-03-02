@@ -15,7 +15,7 @@ def plot_water_levels(station, dates, levels):
     plt.title(station.name)
     
     plt.tight_layout()
-    
+
     plt.axhline(y = station.typical_range[0])
     plt.axhline(y = station.typical_range[1])
 
@@ -30,15 +30,15 @@ def plot_water_levels_with_fit(station, dates, levels, p):
 
     plt.plot(dates, levels)
 
-    plt.axhline(y = station.typical_range[0])
-    plt.axhline(y = station.typical_range[1])
-
-
     plt.xlabel('date')
     plt.ylabel('water level (m)')
     plt.xticks(rotation=45);
     plt.title(station.name)
 
     plt.tight_layout()  
+
+    plt.axhline(y = station.typical_range[0])
+    plt.axhline(y = station.typical_range[1])
+
     plt.show()
    
